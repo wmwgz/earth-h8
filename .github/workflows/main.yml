@@ -23,13 +23,17 @@ jobs:
       - name: list
         run: ls
 
-      - name: Upload to this repo
+      - name: Commit files
         run: |
-          git config user.name "wmwgz"
-          git config user.email "1129162631@qq.com"
+          git config --local user.name "wmwgz"
+          git config --local user.email "1129162631@qq.com"
           git add earth.png && echo A
           git commit -m 'upload earth.png' && echo B
-          git push -u origin master && echo C
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GIT_TOKEN }}
 
       - name: Failure test
         if: failure()
