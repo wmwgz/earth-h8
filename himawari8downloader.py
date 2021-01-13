@@ -1,3 +1,6 @@
+# pip install Pillow
+# pip install requests
+
 import sys
 import time
 import json
