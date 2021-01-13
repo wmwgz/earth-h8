@@ -27,8 +27,8 @@ jobs:
         run: |
           git config --local user.name "wmwgz"
           git config --local user.email "1129162631@qq.com"
-          git add earth.png && echo A
-          git commit -m 'upload earth.png' && echo B
+          git add earth.png
+          git commit -m 'upload earth.png'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
