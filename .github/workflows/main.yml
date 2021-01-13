@@ -1,0 +1,37 @@
+name: CI
+
+on:
+#   schedule:
+#      - cron: '0,30 * * * *'  
+  push:
+
+jobs:
+  job_1:
+    name: Python Crawler
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python environment
+      uses: actions/setup-python@v1.1.1 
+    - name: Install Pillow requests
+      run: pip install Pillow requests
+    - name: Run himawari8downloader.py
+      run: python himawari8downloader.py
+    - name: list
+      run: ls
+    
+    - name: Upload to this repo
+      run: |
+        git config --global user.name "wmwgz"
+        git config --global user.email "1129162631@qq.com"
+        git add earth.png && echo A
+        git commit -m 'upload earth.png' && echo B
+        git push -u origin master && echo C
+        
+    - name: Failure test
+      if: failure()
+      run: | 
+        ls
+        echo 55555  
