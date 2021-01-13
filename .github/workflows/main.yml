@@ -25,8 +25,8 @@ jobs:
 
       - name: Upload to this repo
         run: |
-          git config --global user.name "wmwgz"
-          git config --global user.email "1129162631@qq.com"
+          git config user.name "wmwgz"
+          git config user.email "1129162631@qq.com"
           git add earth.png && echo A
           git commit -m 'upload earth.png' && echo B
           git push -u origin master && echo C
