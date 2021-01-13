@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "2.x"
       - name: Install Pillow requests
-        run: pip install Pillow requests
+        run: pip install Pillow requests python-dateutil 
       - name: Run himawari8downloader.py
         run: python himawari8downloader.py
       - name: list
