@@ -1,5 +1,5 @@
 var arguments = process.argv.splice(2);
-const [AccessKey, SecretKey,Bucket] = arguments || []
+const [AccessKey, SecretKey, Bucket] = arguments || []
 
 if (!AccessKey || !SecretKey || !Bucket) {
   return console.error('AccessKey, SecretKey or Bucket is empty.');
@@ -34,8 +34,8 @@ formUploader.putFile(uploadToken, key, localFile, putExtra, function (respErr,
     throw respErr;
   }
   if (respInfo.statusCode == 200) {
-    console.log('上传成功',respBody);
+    console.log('上传成功', respBody);
   } else {
-    console.log('上传失败',respInfo.statusCode,respBody);
+    console.log('上传失败', respInfo.statusCode, respBody);
   }
 });

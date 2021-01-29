@@ -33,7 +33,13 @@ jobs:
       - name: list
         run: ls
 
-      - name: Commit files
+      - name: Npm Install
+        run: npm install
+
+      - name: Upload to qiniu
+        run: node upload2qiniu.js ${{ secrets.QN_AccessKey }} ${{ secrets.QN_SecretKey }} ${{ secrets.QN_Bucket }}
+
+      - name: Commit files to GitHub
         run: |
           git config --local user.name "wmwgz"
           git config --local user.email "1129162631@qq.com"
