@@ -22,7 +22,7 @@ var putExtra = new qiniu.form_up.PutExtra();
 
 var mac = new qiniu.auth.digest.Mac(AccessKey, SecretKey);
 var options = {
-  scope: Bucket,
+  scope: Bucket + ':' + key, // 覆盖上传
 };
 var putPolicy = new qiniu.rs.PutPolicy(options);
 var uploadToken = putPolicy.uploadToken(mac);
